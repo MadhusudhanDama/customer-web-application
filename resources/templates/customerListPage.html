@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Customers Page</title>
+<meta http-equiv="Context-Type" content="text/html; charset=UTF-8"/>
+<link type="text/css" rel = "stylesheet"  href = "bootstrap.min.css" th:href="@{bootstrap.min.css}"/>
+<style>
+.fixed-footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: white;
+  color: black;
+  text-align: left;
+}
+
+.header {
+  overflow: hidden;
+  background-color: #f1f1f1;
+  padding: 20px 10px;
+}
+.header a.logo {
+  font-size: 25px;
+  font-weight: bold;
+}
+.header form.active {
+  background-color: dodgerblue;
+  color: blue;
+}
+.header-right {
+  float: right;
+}
+</style>
+
+</head>
+<body>
+	<div class="header">
+	 <a href="@{}" class="logo">CSTech Solutions</a>
+  <div class="header-right">
+  	<form class="active" th:action="@{/find}">
+    <input type="text" name="name" id="name" size="50" th:value="${name}" required />
+    <input type="submit" value="Search" />
+	</form>
+    <!-- <a class="active" href="/find">Search</a> -->
+  </div>
+</div>
+	<table class="table table-striped">
+			<tr>
+					<th>Name</th>
+					<th>Age</th>
+					<th>Gender</th>
+					<th>City</th>
+					<th>Country</th>
+					<th>Mobile Number</th>
+			</tr>
+				<tr th:each = "customer: ${customers}">
+					<td th:text="${customer.name}"></td>
+					<td th:text="${customer.age}"></td>
+					<td th:text="${customer.gender}"></td>
+					<td th:text="${customer.city}"></td>
+					<td th:text="${customer.country}"></td>
+					<td th:text="${customer.mobile_number}"></td>
+		
+				</tr>
+			
+		</table>
+		<!-- <input type="number" placeholder="Search"> -->
+	<!-- 	<a href="/search" class="btn btn-success">Search</a> -->
+		<!-- <td><a th:href="@{/search/{id}(id=${customer.id})}" class="btn btn-danger">Search</a></td> -->	
+		</div>
+	  <div class="fixed-footer">
+        <div class="container"> <h5> All Copyrights Reserved to CSTech Solutions @ 2020</h5></div>        
+    </div>	
+</body>
+</html>

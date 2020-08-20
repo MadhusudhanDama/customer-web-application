@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+<title>Add Customer</title>
+<meta http-equiv="Context-Type" content="text/html; charset=UTF-8"/>
+<link type="text/css" rel = "stylesheet"  href = "bootstrap.min.css" th:href="@{bootstrap.min.css}"/></head>
+</head>
+<style>
+.fixed-footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: white;
+  color: black;
+  text-align: left;
+}
+
+.header {
+  overflow: hidden;
+  background-color: #f1f1f1;
+  padding: 20px 10px;
+}
+.header form.active {
+  background-color: dodgerblue;
+  color: blue;
+}
+.header-right {
+  float: left;
+}
+</style>
+
+<body>
+	<div class="header">
+  <div class="header-right">
+  <h1>New Customer</h1>
+  </div>
+</div>
+	<div>
+		<form th:object = "${customer}" th:action = "@{save}" action="#" method="post">
+			<input type="text" th:field="*{name}" class="form-control" placeholder="Customer Name"/>
+			<div style="clear: both; display: block; height: 10px;"></div>
+			<input type="number" th:field="*{age}" class="form-control" placeholder="Age"/>
+			<div style="clear: both; display: block; height: 10px;"></div>
+			<input type="text" th:field="*{gender}" class="form-control" placeholder="Gender"/>
+			<div style="clear: both; display: block; height: 10px;"></div>
+			<input type="text" th:field="*{city}" class="form-control" placeholder="City"/>
+			<div style="clear: both; display: block; height: 10px;"></div>
+			<input type="text" th:field="*{country}" class="form-control" placeholder="Country"/>
+			<div style="clear: both; display: block; height: 10px;"></div>
+			<input type="number" th:field="*{mobile_number}" class="form-control" placeholder="Mobile Number"/>
+			<div style="clear: both; display: block; height: 10px;"></div>
+			<input type="submit" class="btn btn-success" value="Save"></input>
+		</form>
+	</div>
+	<div class="fixed-footer">
+        <div class="container"> <h5> All Copyrights Reserved to CSTech Solutions @ 2020</h5></div>        
+    </div>
+</body>
+</html>

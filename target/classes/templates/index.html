@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Customerlist</title>
+<meta http-equiv="Context-Type" content="text/html; charset=UTF-8"/>
+<link type="text/css" rel = "stylesheet"  href = "bootstrap.min.css" th:href="@{bootstrap.min.css}"/>
+<!-- <style>
+    .fixed-header, .fixed-footer{
+        width: 100%;
+        position: fixed;        
+        background: #333;
+        padding: 10xp 0;
+        color: gray;
+    }
+    .fixed-header{
+        top: 100px;
+    }
+    .fixed-footer{
+        bottom: 90px;
+    }
+       .container{
+        width: 80%;
+        margin: 0 auto; /* Center the DIV horizontally */
+    }
+</style>-->
+	<style>
+.fixed-footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: white;
+  color: black;
+  text-align: left;
+}
+.header {
+  overflow: hidden;
+  background-color: #f1f1f1;
+  padding: 20px 10px;
+}
+
+.header a {
+  float: left;
+  color: black;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px; 
+  line-height: 25px;
+  border-radius: 4px;
+}
+
+.header a.logo {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.header a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.header a.active {
+  background-color: dodgerblue;
+  color: white;
+}
+
+.header-right {
+  float: right;
+}
+</style>
+</head>
+<body>
+<div class="header">
+  <a href="@{/photos/header.jpg}" class="logo">CSTech Solutions</a>
+  <div class="header-right">
+    <a class="active" href="/customers">List Of Customers</a>
+    <a href="/add">Add Customer</a>
+  </div>
+</div>
+<div class="fixed-header">
+   <div class="container">
+	<table class="table table-striped">
+	<tr>
+		<th>Name</th>
+		<th>Age</th>
+		<th>Gender</th>
+		<th>City</th>
+		<th>Country</th>
+		<th>Mobile Number</th>
+	
+	</tr>
+	<tr th:each = "customer : ${customers}">
+		<td th:text = "${customer.name}"></td>
+		<td th:text = "${customer.age}"></td>
+		<td th:text = "${customer.gender}"></td>
+		<td th:text = "${customer.city}"></td>
+		<td th:text = "${customer.country}">
+		<td th:text = "${customer.mobile_number}"></td></td>
+		<td><a th:href="@{/delete/{id}(id=${customer.id})}" class="btn btn-danger">Delete</a></td>
+	</tr>
+	</table>	
+	</div>
+	</div>
+	  <div class="fixed-footer">
+        <div class="container"> <h5> All Copyrights Reserved to CSTech Solutions @ 2020</h5></div>        
+    </div>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Search customers by name</title>
+<meta http-equiv="Context-Type" content="text/html; charset=UTF-8"/>
+<link type="text/css" rel = "stylesheet"  href = "bootstrap.min.css" th:href="@{bootstrap.min.css}"/>
+</head>
+<style>
+.fixed-footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: white;
+  color: black;
+  text-align: left;
+}
+
+.header {
+  overflow: hidden;
+  background-color: #f1f1f1;
+  padding: 20px 10px;
+}
+.header form.active {
+  background-color: dodgerblue;
+  color: blue;
+}
+.header-right {
+  float: left;
+}
+</style>
+
+<body>
+	<div class="header">
+  <div class="header-right">
+  	<h1>Customer</h1>
+  </div>
+</div>
+	
+
+	<table class="table table-striped">
+			<tr>
+					<th>Name</th>
+					<th>Age</th>
+					<th>Gender</th>
+					<th>City</th>
+					<th>Country</th>
+					<th>Mobile Number</th>
+			</tr>
+				<tr th:each = "customer: ${listCustomers}">
+					<td th:text="${customer.name}"></td>
+					<td th:text="${customer.age}"></td>
+					<td th:text="${customer.gender}"></td>
+					<td th:text="${customer.city}"></td>
+					<td th:text="${customer.country}"></td>
+					<td th:text="${customer.mobile_number}"></td>
+		
+				</tr>
+			
+		</table>
+	<div class="fixed-footer">
+        <div class="container"> <h5> All Copyrights Reserved to CSTech Solutions @ 2020</h5></div>        
+    </div>
+	
+</body>
+</html>
